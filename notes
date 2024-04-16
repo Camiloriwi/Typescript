@@ -1,0 +1,15 @@
+// usar npm init
+// usar touch para crear un nuevo archivo 
+
+// instanciar  un clase es crear un objecto apartir de la clase
+
+// usar una clase  cuando esta  se vaya utilizar mas de un ves 
+
+// los tipos no contienen metodos
+
+// las interfaces no pueden ser instanciables 
+
+// y las clases pueden contener tanto metodos  como tambien pueden ser instanciadas
+
+// declarar una variable toda en mayuscula se puede hacer cuando no quiero que esta cambie   ni se pueda modificar
+
