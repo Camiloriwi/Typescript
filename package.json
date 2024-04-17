@@ -13,6 +13,12 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
+    "ts-node": "^10.9.2",
     "tsc": "^2.0.4"
+  },
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "CommonJS",
+    "sourceMap": true
   }
 }

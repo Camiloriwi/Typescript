@@ -13,3 +13,49 @@
 
 // declarar una variable toda en mayuscula se puede hacer cuando no quiero que esta cambie   ni se pueda modificar
 
+
+
+
+Clases y objetos:
+
+    En JavaScript, el encapsulamiento se logra mediante el uso de clases y objetos.
+    Una clase es una plantilla para crear objetos, mientras que los objetos son instancias de una clase.
+    Dentro de una clase, los métodos y las propiedades se definen y encapsulan.
+
+
+
+
+Propiedades privadas:
+
+    Para lograr el encapsulamiento, es común utilizar una convención de nomenclatura para denotar que una propiedad es privada.
+    Por ejemplo, se puede utilizar un guión bajo (_) como prefijo del nombre de la propiedad para indicar que es privada.
+
+
+
+// Métodos de acceso:
+
+    Los métodos set y get se utilizan para acceder y modificar propiedades privadas.
+    El método set permite asignar un nuevo valor a la propiedad y también puede validar que cumpla con ciertos requerimientos.
+    El método get se utiliza para obtener el valor de la propiedad.
+
+
+
+
+
+
+Propiedades y métodos públicos:
+
+    Las propiedades y métodos públicos son accesibles desde cualquier lugar en el código.
+    Forman parte de la interfaz externa de una clase y pueden ser utilizados tanto desde dentro como desde fuera de la clase1.
+
+
+
+Propiedades y métodos privados:
+
+    Las propiedades y métodos privados solo son accesibles desde dentro de la clase en la que están definidos1.
+    En JavaScript, no hay una sintaxis específica para declarar propiedades o métodos como privados. Sin embargo, podemos utilizar una convención de nomenclatura para indicar que son privados.
+
+
+
+Aunque JavaScript no tiene una palabra clave específica para propiedades o métodos protegidos, podemos utilizar la convención de prefijar con un guión bajo para indicar que son protegidos.
+Las propiedades o métodos protegidos son accesibles desde dentro de la clase y también desde las clases que heredan directamente de ella2.

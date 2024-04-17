@@ -1,7 +1,7 @@
 
-let sum = 4+6;
+let suma = 4+6;
 
-console.log(sum);
+console.log(suma);
 
 const ClientSchema = ({
     name: String,
@@ -130,17 +130,171 @@ enum DayOfWeek {
   
 function isWeekdayOrWeekend(day: DayOfWeek): string {
     switch (day) {
-      case DayOfWeek.Sunday:
-      case DayOfWeek.Saturday:
-        return 'Fin de semana';
-      default:
-        return 'Día laboral';
+        case DayOfWeek.Sunday:
+        case DayOfWeek.Saturday:
+            return `Fin de semana`;
+        default:
+            return `:Día laboral`;
     }
 }
   
 
-
 console.log(isWeekdayOrWeekend(DayOfWeek.Sunday));
+
+
+
+
+
+
+enum Answer {
+    No = 0,
+    Yes = 1
+}
+  
+function decide(name: string, message: Answer): void {
+    if (message === Answer.Yes) {
+      console.log(`Hello, ${name}! How are you?`);
+    } else {
+      console.log(`Go away, ${name}!`);
+    }
+}
+  
+
+decide("Andreita", Answer.Yes);
+  
+
+class Persona {
+    #name: string; // Definimos el tipo del atributo 'name'
+  
+    constructor(name: string) {
+      this.#name = name;
+    }
+  
+    set name(nuevoName: string) {
+      if (nuevoName.length > 2) {
+        this.#name = nuevoName;
+      } else {
+        throw new Error("El nombre debe tener al menos 2 caracteres");
+      }
+    }
+  
+    get name() {
+      return this.#name.charAt(0).toUpperCase() + this.#name.slice(1);
+    }
+}
+  
+try {
+    const persona = new Persona("juan");
+    console.log(persona.name); // "Juan"
+    persona.name = "camilo"; // El name debe tener al menos 2 caracteres
+} catch (error) {
+    console.error(error);
+}
+  
+
+import { sum } from "./comment/main";
+import { users } from "./comment/main";
+import { DayOfWeeks ,isWeekdayOrWeekends } from "./comment/main";
+import {yourHouse} from  "./comment/main";
+import  myCars  from "./comment/main";
+
+console.log(sum);
+console.log(users);
+console.log(isWeekdayOrWeekends(DayOfWeeks.Sunday));
+
+console.log(myCars);
+
+
+console.log(yourHouse);
+
+
+
+
+
+
+
+
+// Definición de la interfaz
+interface IAnimals {
+    name: string;
+    age: number;
+    sonido(): string;
+}
+
+// Definición de la clase base
+class Animal implements IAnimals {
+    name: string;
+    age: number;
+
+    constructor(name: string, age: number) {
+        this.name = name;
+        this.age = age;
+    }
+
+    sonido(): string {
+        return "Este animal hace un sonido";
+    }
+}
+
+// Definición de una clase que hereda de la clase base
+class dog extends Animal {
+    raza: string;
+
+    constructor(name: string, age: number, raza: string) {
+        super(name, age);
+        this.raza = raza;
+    }
+
+    sonido(): string {
+        return "Guau guau!";
+    }
+}
+
+// Creación de un array de animales
+let animals: Animal[] = [
+    new Animal("gato", 5),
+    new dog("firulais", 3, "chiguagua"),
+    new Animal("lion", 4),
+    new dog("Rex", 7, "Pastor alemán")
+];
+
+// Uso de map para obtener los names de los animals
+let names = animals.map(animal => animal.name);
+console.log(names);
+
+// Uso de filter para obtener solo los dogs
+let dogs = animals.filter(animal => animal instanceof dog);
+console.log(dogs);
+
+// Uso de reduce para obtener la age total de los animals
+let edadTotal = animals.reduce((total, animal) => total + animal.age, 0);
+console.log(edadTotal);
+
+// Uso de async/await con una Promise para simular una operación asíncrona
+async function obtenerAnimal(name: string): Promise<Animal | undefined> {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(animals.find(animal => animal.name === name));
+        }, 2000);
+    });
+}
+
+async function mostrarAnimal(name: string) {
+    let animal = await obtenerAnimal(name);
+    console.log(animal);
+}
+
+mostrarAnimal("firulais");
+
+
+
+
+
+
+
+
+
+
 
 
 
