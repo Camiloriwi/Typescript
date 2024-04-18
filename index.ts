@@ -209,19 +209,12 @@ console.log(yourHouse);
 
 
 
-
-
-
-
-
-// Definición de la interfaz
 interface IAnimals {
     name: string;
     age: number;
-    sonido(): string;
+    sound(): string;
 }
 
-// Definición de la clase base
 class Animal implements IAnimals {
     name: string;
     age: number;
@@ -231,47 +224,41 @@ class Animal implements IAnimals {
         this.age = age;
     }
 
-    sonido(): string {
-        return "Este animal hace un sonido";
+    sound(): string {
+        return "This animal makes a sound";
     }
 }
 
-// Definición de una clase que hereda de la clase base
-class dog extends Animal {
-    raza: string;
+class Dog extends Animal {
+    breed: string;
 
-    constructor(name: string, age: number, raza: string) {
+    constructor(name: string, age: number, breed: string) {
         super(name, age);
-        this.raza = raza;
+        this.breed = breed;
     }
 
-    sonido(): string {
-        return "Guau guau!";
+    sound(): string {
+        return "Bark bark!";
     }
 }
 
-// Creación de un array de animales
 let animals: Animal[] = [
-    new Animal("gato", 5),
-    new dog("firulais", 3, "chiguagua"),
+    new Animal("cat", 5),
+    new Dog("firulais", 3, "chihuahua"),
     new Animal("lion", 4),
-    new dog("Rex", 7, "Pastor alemán")
+    new Dog("Rex", 7, "German Shepherd")
 ];
 
-// Uso de map para obtener los names de los animals
 let names = animals.map(animal => animal.name);
 console.log(names);
 
-// Uso de filter para obtener solo los dogs
-let dogs = animals.filter(animal => animal instanceof dog);
+let dogs = animals.filter(animal => animal instanceof Dog);
 console.log(dogs);
 
-// Uso de reduce para obtener la age total de los animals
-let edadTotal = animals.reduce((total, animal) => total + animal.age, 0);
-console.log(edadTotal);
+let totalAge = animals.reduce((total, animal) => total + animal.age, 0);
+console.log(totalAge);
 
-// Uso de async/await con una Promise para simular una operación asíncrona
-async function obtenerAnimal(name: string): Promise<Animal | undefined> {
+async function getAnimal(name: string): Promise<Animal | undefined> {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve(animals.find(animal => animal.name === name));
@@ -279,23 +266,59 @@ async function obtenerAnimal(name: string): Promise<Animal | undefined> {
     });
 }
 
-async function mostrarAnimal(name: string) {
-    let animal = await obtenerAnimal(name);
+async function showAnimal(name: string) {
+    let animal = await getAnimal(name);
     console.log(animal);
 }
 
-mostrarAnimal("firulais");
+showAnimal("firulais");
 
+interface IAirplanes {
+    name: string;
+    num: number;
+    destination: string;
+    departureTime: string;
+}
 
+class Airplanes implements IAirplanes {
+    name: string;
+    num: number;
+    destination: string;
+    departureTime: string;
 
+    constructor(name: string, num: number, destination: string, departureTime: string) {
+        this.name = name;
+        this.num = num;
+        this.destination = destination;
+        this.departureTime = departureTime;
+    }
+}
 
+class Airline extends Airplanes {
+    airline: string;
 
+    constructor(name: string, num: number, destination: string, departureTime: string, company: string) {
+        super(name, num, destination, departureTime);
+        this.airline = company;
+    }
+}
 
+let airplanes: IAirplanes[] = [
+    new Airplanes("f16", 132, "Russia", "12:45:12"),
+    new Airline("inter-express", 180, "Malaysia", "23:15:20", "Singapore"),
+    new Airplanes("f26", 512, "Iran", "6:35:30"),
+    new Airline("brazilia", 1026, "Canada", "14:10:15", "Qatar"),
+    new Airplanes("f18", 32, "Israel", "13:45:12"),
+    new Airline("continental", 180, "Dubai", "10:15:20", "Emirates"),
+    new Airplanes("cargo-airplane", 1242, "Ukraine", "11:35:30"),
+    new Airline("Lufthansa5", 1026, "Argentina", "14:10:15", "Pacific")
+];
 
+let airplaneNames = airplanes.map(airplane => airplane.name);
+console.log(airplaneNames);
 
+let airlines = airplanes.filter(airplane => airplane instanceof Airline);
+console.log(airlines);
 
-
-
-
-
-
+let totalNum = airplanes.reduce((total, airplane) => total + airplane.num, 0);
+console.log(totalNum);
